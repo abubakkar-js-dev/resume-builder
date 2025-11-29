@@ -2,15 +2,31 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="container mx-auto flex min-h-screen items-center justify-between p-24 gap-6">
-      <div>
-        <Image src={'/banner.png'} width={578} height={499} alt="Resume builder banner"/>
+    <div className="container mx-auto flex min-h-screen items-center justify-between  gap-6 h-full">
+      <div className="h-full w-1/2">
+        <Image
+          src={"/banner.png"}
+          width={720}
+          height={590}
+          alt="Resume builder banner"
+          className="w-full h-full object-contain"
+        />
       </div>
       <div>
-        <h2>Create Your <span>AI-Powered Resume</span></h2>
-        <h4>Let our AI technology help you build a professional resume tailored to your skills, experience, and career goals.</h4>
-        <p>Follow these simple steps to create a standout resume that will get you noticed by top employers.</p>
-        <button>Start Now</button>
+        <h1 className="text-2xl md:text-3xl lg:text-7xl xl:text-[80px] font-bold leading-tight mb-4">
+          Create Your <span className="text-primary">AI-Powered Resume</span>
+        </h1>
+        <h4 className="font-medium text-main-text mb-8 lg:mb-[42px] text-lg md:text-xl lg:text-2xl">
+          Let our AI technology help you build a professional resume tailored to
+          your skills, experience, and career goals.
+        </h4>
+        <p className="text-subtitle-text text-base md:text-lg mb-10 lg:mb-12">
+          Follow these simple steps to create a standout resume that will get
+          you <br /> noticed by top employers.
+        </p>
+        <button className="px-17 py-4 bg-primary text-base font-medium text-neutral-light rounded-[6]">
+          Start Now
+        </button>
       </div>
     </div>
   );

@@ -6,8 +6,17 @@
   --primary: #28C76F;
   --secondary: #9A9A9A;
   --text-main: #333333;
-  --text-subtitle: #333333;
-  
+
+}
+
+@theme{
+  --background: #171717;
+  --foreground: #ffffff;
+  --color-primary: #28C76F;
+  --color-secondary: #9A9A9A;
+  --color-main-text: #333333;
+  --color-subtitle-text: #777777;
+  --color-neutral-light: #FCFCFC;
 }
 
 body {
