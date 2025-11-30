@@ -5,8 +5,10 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCareerSummary } from "@/store/slices/formSlice";
 import { setGenerationProgress, setIsGenerating } from "@/store/slices/navigationSlice";
 import { generateResume } from "../../actions";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 export default function AIResumeGenerationStep() {
+  usePageTitle("AI Resume Generation | Resume Builder");
   const dispatch = useAppDispatch();
   const { isGenerating, generationProgress } = useAppSelector((state) => state.navigation);
 

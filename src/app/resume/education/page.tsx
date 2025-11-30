@@ -7,9 +7,11 @@ import { setCertifications, setEducation } from "@/store/slices/formSlice";
 import { toggleCertifications } from "@/store/slices/navigationSlice";
 import { Certification, Education } from "@/types";
 import { Plus } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 
-export default function EducationStep() {
+export default function EducationAndCertificationsStep() {
+  usePageTitle("Education & Certifications | Resume Builder");
   const dispatch = useAppDispatch();
   const educationData = useAppSelector((state) => state.form.education);
   const certificationData = useAppSelector((state) => state.form.certifications);
@@ -79,6 +81,7 @@ export default function EducationStep() {
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
+      usePageTitle("Education | Resume Builder");
       <div className="flex flex-col gap-6">
         {/* Header */}
         <div className="flex items-start justify-between">

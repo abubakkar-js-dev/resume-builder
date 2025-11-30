@@ -3,10 +3,11 @@ import ResumePreview from "@/components/ResumePreview";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useRef, useState } from "react";
-
+import { usePageTitle } from "@/hooks/usePageTitle";
 import { persistor } from "@/store";
 
 export default function ReviewResumePage() {
+  usePageTitle("Review Resume | Resume Builder");
   const resumeRef = useRef<HTMLDivElement>(null);
   const [isDownloading, setIsDownloading] = useState(false);
 

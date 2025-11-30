@@ -5,6 +5,7 @@ import Select from "@/components//Select";
 import { ContactInfo } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setContactInfo } from "@/store/slices/formSlice";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const SOCIAL_MEDIA_OPTIONS = [
   { value: "Facebook", label: "Facebook" },
@@ -16,6 +17,7 @@ const SOCIAL_MEDIA_OPTIONS = [
 ];
 
 export default function ContactInformationStep() {
+  usePageTitle("Contact Information | Resume Builder"); 
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.contactInfo);
 

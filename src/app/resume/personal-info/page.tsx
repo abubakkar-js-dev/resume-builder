@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
 import Input from "@/components/Input";
 import Select from "@/components/Select";
-import { PersonalInfo } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setPersonalInfo } from "@/store/slices/formSlice";
+import { PersonalInfo } from "@/types";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 
 const COUNTRIES = [
@@ -16,6 +16,7 @@ const COUNTRIES = [
 ];
 
 export default function PersonalInformation() {
+  usePageTitle("Personal Information | Resume Builder");
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.personalInfo);
 

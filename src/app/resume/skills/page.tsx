@@ -9,10 +9,12 @@ import { Plus } from "lucide-react";
 import { WorkExperience } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setWorkExperience } from "@/store/slices/formSlice";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 
 
 export default function SkillsExperienceStep() {
+  usePageTitle("Skills & Experience | Resume Builder");
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.workExperience);
   const addWorkExperience = () => {

@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
-import Textarea from "@/components/Textarea";
 import Select from "@/components/Select";
-import { CareerSummary } from "@/types";
+import Textarea from "@/components/Textarea";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCareerSummary } from "@/store/slices/formSlice";
+import { CareerSummary } from "@/types";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const JOB_TITLES = [
   { value: "", label: "Enter your most recent or current job title" },
@@ -16,6 +16,7 @@ const JOB_TITLES = [
 ];
 
 export default function CareerSummaryStep() {
+  usePageTitle("Career Summary | Resume Builder");
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.careerSummary);
 
