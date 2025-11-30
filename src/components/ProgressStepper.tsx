@@ -21,7 +21,7 @@ export default function ProgressStepper() {
           
           {/* Green Active Line */}
           <div
-            className="absolute top-0 left-0 h-full bg-[#28c76f] rounded-br-[100px] rounded-tr-[100px] transition-all duration-500 ease-out"
+            className="absolute top-0 left-0 h-full bg-primary rounded-br-[100px] rounded-tr-[100px] transition-all duration-500 ease-out"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
@@ -30,7 +30,7 @@ export default function ProgressStepper() {
         <div className="relative flex justify-between items-start w-full">
           {STEPS.map((step, index) => {
             const isCompleted = index <= currentStepIndex;
-            const isCurrent = index === currentStepIndex;
+            // const isCurrent = index === currentStepIndex;
 
             return (
               <div
@@ -42,7 +42,7 @@ export default function ProgressStepper() {
                   className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300
                   ${
                     isCompleted
-                      ? "bg-[#28c76f] text-[#f9f9f9]"
+                      ? "bg-primary text-[#f9f9f9]"
                       : "bg-[#e8e8e8] text-main-text"
                   }
                   `}

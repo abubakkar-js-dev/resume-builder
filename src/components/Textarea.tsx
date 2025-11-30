@@ -7,15 +7,15 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 
 export default function Textarea({ label, className = "", ...props }: TextareaProps) {
   return (
-    <div className={`flex flex-col gap-[4px] ${className}`}>
+    <div className={`flex flex-col gap-1 ${className}`}>
       {label && (
         <p className="text-[#101010] text-[20px] font-medium leading-[1.6]">
           {label}
         </p>
       )}
-      <div className="relative bg-[#fcfcfd] rounded-[8px]">
+      <div className="relative bg-[#fcfcfd] rounded-lg">
         <textarea
-          className="w-full h-full px-[24px] py-[20px] bg-transparent text-[#333333] text-[16px] rounded-[8px] border border-neutral-300 outline-none focus:border-[#28c76f] transition-colors resize-none"
+          className="w-full h-full px-6 py-5 bg-transparent text-main-text text-[16px] rounded-lg border border-neutral-300 outline-none focus:border-primary transition-colors resize-none"
           {...props}
         />
       </div>

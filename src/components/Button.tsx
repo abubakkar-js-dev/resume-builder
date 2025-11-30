@@ -24,9 +24,9 @@ export default function Button({
       className={`${baseStyles} ${variantStyles} ${className}`}
       {...props}
     >
-      {icon === "left" && <ArrowLeft className="w-[24px] h-[24px]" />}
+      {icon === "left" && <ArrowLeft className="w-6 h-6" />}
       {children}
-      {icon === "right" && <ArrowRight className="w-[24px] h-[24px]" />}
+      {icon === "right" && <ArrowRight className="w-6 h-6" />}
     </button>
   );
 }
