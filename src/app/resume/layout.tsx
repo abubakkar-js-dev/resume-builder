@@ -39,11 +39,11 @@ export default function ResumeLayout({
       {/* 3. The Navigation Footer */}
       <footer className="py-6 border-t border-gray-100">
         <div className="w-full max-w-4xl mx-auto px-4">
-          <div className="flex justify-between w-full">
+          <div className="flex gap-6">
             <div className="w-full">
               <BackButton />
             </div>
-            <div>
+            <div className="w-full">
               <NextButton />
             </div>
           </div>
@@ -70,6 +70,7 @@ function BackButton() {
 
   return (
     <Button
+      className="w-full"
       variant="secondary"
       icon="left"
       onClick={goBack}
@@ -96,7 +97,7 @@ function NextButton() {
   };
 
   return (
-    <Button variant="primary" icon="right" onClick={goNext} disabled={disabled}>
+    <Button className="w-full" variant="primary" icon="right" onClick={goNext} disabled={disabled}>
       Next
     </Button>
   );
