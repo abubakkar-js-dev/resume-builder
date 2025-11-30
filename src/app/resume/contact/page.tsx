@@ -6,7 +6,6 @@ import { ContactInfo } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setContactInfo } from "@/store/slices/formSlice";
 
-interface ContactInformationStepProps {}
 
 const SOCIAL_MEDIA_OPTIONS = [
   { value: "Facebook", label: "Facebook" },
@@ -17,7 +16,7 @@ const SOCIAL_MEDIA_OPTIONS = [
   { value: "Dribbble", label: "Dribbble" },
 ];
 
-export default function ContactInformationStep({}: ContactInformationStepProps) {
+export default function ContactInformationStep() {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.contactInfo);
 
@@ -27,19 +26,19 @@ export default function ContactInformationStep({}: ContactInformationStepProps) 
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-6">
         {/* Header */}
-        <div className="flex flex-col gap-[16px]">
-          <h1 className="text-[#333333] text-[48px] leading-[1.4] font-semibold">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-main-text text-[48px] leading-[1.4] font-semibold">
             Your Contact Information
           </h1>
-          <p className="text-[#777777] text-[18px] leading-[1.6]">
+          <p className="text-subtitle-text text-[18px] leading-[1.6]">
             Include additional contact details and social media links to showcase your professional presence.
           </p>
         </div>
 
         {/* Form Fields */}
-        <div className="flex flex-col gap-[32px]">
+        <div className="flex flex-col gap-8">
           {/* LinkedIn Profile */}
           <Input
             label="LinkedIn Profile"
@@ -59,7 +58,7 @@ export default function ContactInformationStep({}: ContactInformationStepProps) 
           />
 
           {/* Other Social Media & URL */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <Select
               label="Other Social Media"
               value={data.socialMedia}

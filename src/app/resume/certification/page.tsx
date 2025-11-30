@@ -7,9 +7,8 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCertifications } from "@/store/slices/formSlice";
 import { setShowCertifications } from "@/store/slices/navigationSlice";
 
-interface CertificationsStepProps {}
 
-export default function CertificationsStep({}: CertificationsStepProps) {
+export default function CertificationsStep() {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.certifications);
   const addCertification = () => {
@@ -43,28 +42,28 @@ export default function CertificationsStep({}: CertificationsStepProps) {
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-6">
         {/* Header */}
         <div className="flex items-start justify-between">
-          <div className="flex flex-col gap-[16px] max-w-[904px]">
-            <h1 className="text-[#333333] text-[48px] leading-[1.4] font-semibold">
+          <div className="flex flex-col gap-4 max-w-[904px]">
+            <h1 className="text-main-text text-[48px] leading-[1.4] font-semibold">
               Your Certifications
             </h1>
-            <p className="text-[#777777] text-[18px] leading-[1.6]">
+            <p className="text-subtitle-text text-[18px] leading-[1.6]">
               Provide your academic qualifications and any relevant certifications to strengthen your resume.
             </p>
           </div>
           <button
             type="button"
             onClick={handleSwitchToEducation}
-            className="bg-[#333333] px-[24px] py-[11px] rounded-[6px] h-[56px] flex items-center gap-[8px] hover:bg-[#444444] transition-colors"
+            className="bg-main-text px-6 py-[11px] rounded-md h-14 flex items-center gap-2 hover:bg-[#444444] transition-colors"
           >
-            <span className="text-[#fcfcfc] text-[16px] font-medium">Education</span>
+            <span className="text-neutral-light text-[16px] font-medium">Education</span>
           </button>
         </div>
 
         {/* Form Fields */}
-        <div className="flex flex-col gap-[32px]">
+        <div className="flex flex-col gap-8">
           {/* Certification Title */}
           <Input
             label="Certification Title"
@@ -75,7 +74,7 @@ export default function CertificationsStep({}: CertificationsStepProps) {
           />
 
           {/* Issuing Organization */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <Input
               label="Issuing Organization"
               value={currentCertification.issuingOrganization}
@@ -89,7 +88,7 @@ export default function CertificationsStep({}: CertificationsStepProps) {
           </div>
 
           {/* Certificate Issue */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <DatePicker
               label="Certificate Issue"
               value={currentCertification.issueDate}
@@ -107,16 +106,16 @@ export default function CertificationsStep({}: CertificationsStepProps) {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-[2px] bg-[#e0e0e0]" />
+          <div className="w-full h-0.5 bg-[#e0e0e0]" />
 
           {/* Add Another Certification */}
           <button
             type="button"
             onClick={addCertification}
-            className="flex items-center gap-[10px] text-[#28c76f] hover:text-[#24b263] transition-colors"
+            className="flex items-center gap-2.5 text-primary hover:text-primary/80 transition-colors"
           >
-            <div className="w-[24px] h-[24px] rounded-full bg-[#28c76f] flex items-center justify-center">
-              <Plus className="w-[16px] h-[16px] text-white" />
+            <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+              <Plus className="w-4 h-4 text-white" />
             </div>
             <span className="text-[20px] font-medium">Add Another Certification</span>
           </button>

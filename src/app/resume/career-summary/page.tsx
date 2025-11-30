@@ -6,7 +6,6 @@ import { CareerSummary } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCareerSummary } from "@/store/slices/formSlice";
 
-interface CareerSummaryStepProps {}
 
 const JOB_TITLES = [
 
@@ -18,7 +17,7 @@ const JOB_TITLES = [
   { value: "Product Manager", label: "Product Manager" },
 ];
 
-export default function CareerSummaryStep({}: CareerSummaryStepProps) {
+export default function CareerSummaryStep() {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.careerSummary);
 
@@ -28,19 +27,19 @@ export default function CareerSummaryStep({}: CareerSummaryStepProps) {
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-6">
         {/* Header */}
-        <div className="flex flex-col gap-[16px] max-w-[904px]">
-          <h1 className="text-[#333333] text-[48px] leading-[1.4] font-semibold">
+        <div className="flex flex-col gap-4 max-w-[904px]">
+          <h1 className="text-main-text text-[48px] leading-[1.4] font-semibold">
             Your Career Overview
           </h1>
-          <p className="text-[#777777] text-[18px] leading-[1.6]">
-            A strong career summary will make a lasting impression on recruiters. Let's create a summary that highlights your experience and goals.
+          <p className="text-subtitle-text text-[18px] leading-[1.6]">
+            A strong career summary will make a lasting impression on recruiters. Let&apos;s create a summary that highlights your experience and goals.
           </p>
         </div>
 
         {/* Form Fields */}
-        <div className="flex flex-col gap-[32px]">
+        <div className="flex flex-col gap-8">
           {/* Job Title */}
           <Select
             label="Job Title"

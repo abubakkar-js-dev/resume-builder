@@ -31,19 +31,19 @@ export default function AIResumeGenerationStep() {
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-6">
         {/* Header */}
-        <div className="flex flex-col gap-[16px]">
-          <h1 className="text-[#333333] text-[48px] leading-[1.4] font-semibold">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-main-text text-[48px] leading-[1.4] font-semibold">
             AI Resume Magic
           </h1>
-          <p className="text-[#777777] text-[18px] leading-[1.6]">
-            Now, let's turn all the information you've provided into a professional resume! Our AI will generate a polished version that showcases your strengths and matches industry standards.
+          <p className="text-subtitle-text text-[18px] leading-[1.6]">
+            Now, let&apos;s turn all the information you&apos;ve provided into a professional resume! Our AI will generate a polished version that showcases your strengths and matches industry standards.
           </p>
         </div>
 
         {/* Content */}
-        <div className="content-stretch flex flex-col gap-[64px] items-start relative shrink-0 w-full">
+        <div className="content-stretch flex flex-col gap-16 items-start relative shrink-0 w-full">
           {/* Progress Bar */}
           {isGenerating && (
             <ProgressBar
