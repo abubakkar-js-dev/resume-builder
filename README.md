@@ -179,7 +179,7 @@ src/
 
 ## 👨‍💻 Developer
 
-**Abubakkar JS Dev**  
+**ABU BAKKAR SIDDIK**  
 GitHub: [@abubakkar-js-dev](https://github.com/abubakkar-js-dev)
 
 ---
