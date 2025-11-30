@@ -81,7 +81,6 @@ export default function EducationAndCertificationsStep() {
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
-      usePageTitle("Education | Resume Builder");
       <div className="flex flex-col gap-6">
         {/* Header */}
         <div className="flex items-start justify-between">
