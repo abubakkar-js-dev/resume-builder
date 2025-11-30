@@ -8,6 +8,7 @@
   --color-main-text: #333333;
   --color-subtitle-text: #777777;
   --color-neutral-light: #fcfcfc;
+  --color-danger: #ea5455;
 }
 
 body {

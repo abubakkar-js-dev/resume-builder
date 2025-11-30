@@ -5,7 +5,7 @@ A multi-step CV maker application built with Next.js, TypeScript, Redux, and AI 
 ## 🔗 Links
 
 - **GitHub Repository:** [https://github.com/abubakkar-js-dev/resume-builder](https://github.com/abubakkar-js-dev/resume-builder)
-- **Live Demo:** [Coming Soon - Deployment in Progress]
+- **Live Demo:** [https://resume-builder-drab-five.vercel.app/](https://resume-builder-drab-five.vercel.app/)
 - **Design Reference:** [Figma Design](https://www.figma.com/design/ojlxr9UDkKql9vc00cLQIF/Practices-CV-Making?node-id=0-1&p=f&t=cpd2nyPPpDYBJLj2-0)
 
 > ✅ **AI Integration Verified:** Google Gemini API successfully tested and generating professional resume content.

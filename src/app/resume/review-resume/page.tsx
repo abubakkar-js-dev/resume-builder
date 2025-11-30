@@ -1,10 +1,11 @@
 "use client";
 import ResumePreview from "@/components/ResumePreview";
+import { usePageTitle } from "@/hooks/usePageTitle";
+import { persistor } from "@/store";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useRef, useState } from "react";
-import { usePageTitle } from "@/hooks/usePageTitle";
-import { persistor } from "@/store";
+import Button from "@/components/Button";
 
 export default function ReviewResumePage() {
   usePageTitle("Review Resume | Resume Builder");
@@ -72,20 +73,34 @@ export default function ReviewResumePage() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-4 justify-between mt-4">
-            <button 
-                onClick={handleDownload}
-                disabled={isDownloading}
-                className="flex-1 bg-[#d9d9d9] hover:bg-[#c0c0c0] text-[#333] font-medium py-3 rounded-md transition-colors disabled:opacity-50"
-            >
-                {isDownloading ? "Downloading..." : "Download Resume"}
-            </button>
-            <button 
+        <div className="flex flex-col gap-4 mt-4">
+            {/* Top Row: Download and Find Job */}
+            <div className="flex gap-4">
+                <Button
+                    onClick={handleDownload}
+                    disabled={isDownloading}
+                    variant="secondary"
+                    className="flex-1"
+                >
+                    {isDownloading ? "Downloading..." : "Download Resume"}
+                </Button>
+                <Button
+                    onClick={() => window.open('https://www.linkedin.com/jobs', '_blank')}
+                    variant="primary"
+                    className="flex-1"
+                >
+                    Find Your Favorite Job
+                </Button>
+            </div>
+
+            {/* Bottom Row: Reset Button */}
+            <Button
                 onClick={handleReset}
-                className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-3 rounded-md transition-colors"
+                variant="danger"
+                className="w-full"
             >
                 Reset & Start Over
-            </button>
+            </Button>
         </div>
       </div>
     </div>

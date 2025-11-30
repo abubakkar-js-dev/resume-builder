@@ -15,6 +15,7 @@ export default function ResumeLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  console.log(pathname);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export default function ResumeLayout({
       </main>
 
       {/* 3. The Navigation Footer */}
-      <footer className="py-6 border-t border-gray-100">
+      <footer className={`py-6 border-t border-gray-100 ${pathname === "/resume/review-resume" ? "hidden" : ""} `}>
         <div className="w-full max-w-4xl mx-auto px-4">
           <div className="flex gap-6">
             <div className="w-full">
