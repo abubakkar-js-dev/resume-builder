@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 import ProgressStepper from "@/components/ProgressStepper";
 import { STEPS } from "@/data/steps";
 import { useAppDispatch } from "@/store/hooks";

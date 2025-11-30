@@ -1,3 +1,4 @@
+"use client";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import React from "react";
 

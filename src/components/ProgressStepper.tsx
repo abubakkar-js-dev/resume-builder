@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { STEPS } from "../data/steps";
 import { useAppSelector } from "../store/hooks";
