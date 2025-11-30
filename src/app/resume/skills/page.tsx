@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Input from "@/components/Input";
-import Textarea from "@/components/ui/Textarea";
+import Textarea from "@/components/Textarea";
 import DatePicker from "@/components/DatePicker";
 import FileUpload from "@/components/FileUpload";
 import TagInput from "@/components/TagInput";

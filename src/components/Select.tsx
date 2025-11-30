@@ -1,37 +1,33 @@
-"use client";
-import { Label } from "@/components/ui/Label";
 import React from "react";
-
-type Option = { value: string; label: string };
+import { ChevronDown } from "lucide-react";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
-  options: Option[];
+  className?: string;
+  options: { value: string; label: string }[];
 }
 
-export default function Select({
-  label,
-  options,
-  className = "",
-  ...props
-}: SelectProps) {
+export default function Select({ label, className = "", options, ...props }: SelectProps) {
   return (
-    <div className={className}>
+    <div className={`flex flex-col gap-[4px] ${className}`}>
       {label && (
-        <Label className="mb-2 text-sm font-medium text-gray-700">
+        <p className="text-[#101010] text-[20px] font-medium leading-[1.6]">
           {label}
-        </Label>
+        </p>
       )}
-      <select
-        className="h-9 w-full rounded-md border border-gray-200 bg-white px-3 py-1 text-base outline-none focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 disabled:opacity-50"
-        {...props}
-      >
-        {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
+      <div className="relative bg-[#fcfcfd] h-[64px] rounded-[8px]">
+        <select
+          className="w-full h-full px-[24px] bg-transparent text-[#333333] text-[16px] rounded-[8px] border border-neutral-300 outline-none focus:border-[#28c76f] transition-colors appearance-none cursor-pointer"
+          {...props}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <ChevronDown className="absolute right-[24px] top-1/2 -translate-y-1/2 w-[16px] h-[16px] text-[#98A2B3] pointer-events-none" />
+      </div>
     </div>
   );
 }

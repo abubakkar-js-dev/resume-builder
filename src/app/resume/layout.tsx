@@ -39,8 +39,8 @@ export default function ResumeLayout({
       {/* 3. The Navigation Footer */}
       <footer className="py-6 border-t border-gray-100">
         <div className="w-full max-w-4xl mx-auto px-4">
-          <div className="flex justify-between">
-            <div>
+          <div className="flex justify-between w-full">
+            <div className="w-full">
               <BackButton />
             </div>
             <div>
