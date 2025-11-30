@@ -1,13 +1,103 @@
-export default function CVLayout({
-    children,
+"use client";
+import Button from "@/components/Button";
+import ProgressStepper from "@/components/ProgressStepper";
+import { STEPS } from "@/data/steps";
+import { useAppDispatch } from "@/store/hooks";
+import { setCurrentStep } from "@/store/slices/navigationSlice";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect } from "react";
+
+export default function ResumeLayout({
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <div className="min-h-screen bg-gray-50">
-            <div className="max-w-7xl mx-auto">
-                {children}
-            </div>
-        </div>
+  const pathname = usePathname();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const idx = STEPS.findIndex(
+      (s) => s.route === pathname || s.route === pathname.replace(/\/$/, "")
     );
+    if (idx >= 0) {
+      dispatch(setCurrentStep(idx + 1));
+    }
+  }, [pathname, dispatch]);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* 1. The Stepper Header */}
+      <header className="pt-8">
+        <ProgressStepper />
+      </header>
+
+      {/* 2. The Dynamic Route Content (Middle Part) */}
+      <main className="grow w-full max-w-4xl mx-auto px-4 py-8">
+        {children}
+      </main>
+
+      {/* 3. The Navigation Footer */}
+      <footer className="py-6 border-t border-gray-100">
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <div className="flex justify-between">
+            <div>
+              <BackButton />
+            </div>
+            <div>
+              <NextButton />
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function BackButton() {
+  const dispatch = useAppDispatch();
+  const pathname = usePathname();
+  const router = useRouter();
+  const index = STEPS.findIndex((s) => s.route === pathname);
+  const disabled = index <= 0;
+
+  const goBack = () => {
+    if (index > 0) {
+      const to = STEPS[index - 1].route;
+      router.push(to);
+      dispatch(setCurrentStep(index));
+    }
+  };
+
+  return (
+    <Button
+      variant="secondary"
+      icon="left"
+      onClick={goBack}
+      disabled={disabled}
+    >
+      Back
+    </Button>
+  );
+}
+
+function NextButton() {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const pathname = usePathname();
+  const indexNext = STEPS.findIndex((s) => s.route === pathname);
+  const disabled = indexNext === -1 || indexNext >= STEPS.length - 1;
+
+  const goNext = () => {
+    if (indexNext >= 0 && indexNext < STEPS.length - 1) {
+      const to = STEPS[indexNext + 1].route;
+      router.push(to);
+      dispatch(setCurrentStep(indexNext + 2));
+    }
+  };
+
+  return (
+    <Button variant="primary" icon="right" onClick={goNext} disabled={disabled}>
+      Next
+    </Button>
+  );
 }

@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="container mx-auto flex min-h-screen items-center justify-between  gap-6 h-full">
+      {/* Left Side */}
       <div className="h-full w-1/2">
         <Image
           src={"/banner.png"}
@@ -12,6 +14,7 @@ export default function Home() {
           className="w-full h-full object-contain"
         />
       </div>
+      {/* Right Side */}
       <div>
         <h1 className="text-2xl md:text-3xl lg:text-7xl xl:text-[80px] font-bold leading-tight mb-4">
           Create Your <span className="text-primary">AI-Powered Resume</span>
@@ -24,9 +27,9 @@ export default function Home() {
           Follow these simple steps to create a standout resume that will get
           you <br /> noticed by top employers.
         </p>
-        <button className="px-17 py-4 bg-primary text-base font-medium text-neutral-light rounded-[6]">
+        <Link href="/resume/personal-info" className="px-17 py-4 bg-primary hover:bg-primary/80 hover:cursor-pointer text-base font-medium text-neutral-light rounded-[6]">
           Start Now
-        </button>
+        </Link>
       </div>
     </div>
   );
