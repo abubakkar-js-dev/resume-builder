@@ -1,6 +1,6 @@
 "use client";
 import ProgressStepper from "@/components/ProgressStepper";
-import Button from "@/components/ui/Button";
+import Button from "@/components/Button";
 import { STEPS } from "@/data/steps";
 import { useAppDispatch } from "@/store/hooks";
 import { setCurrentStep } from "@/store/slices/navigationSlice";

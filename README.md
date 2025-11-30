@@ -1,36 +1,187 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-Powered Resume Builder
 
-## Getting Started
+A multi-step CV maker application built with Next.js, TypeScript, Redux, and AI integration using Google's Gemini model.
 
-First, run the development server:
+## 🔗 Links
 
+- **GitHub Repository:** [https://github.com/abubakkar-js-dev/resume-builder](https://github.com/abubakkar-js-dev/resume-builder)
+- **Live Demo:** [Coming Soon - Deployment in Progress]
+- **Design Reference:** [Figma Design](https://www.figma.com/design/ojlxr9UDkKql9vc00cLQIF/Practices-CV-Making?node-id=0-1&p=f&t=cpd2nyPPpDYBJLj2-0)
+
+> ✅ **AI Integration Verified:** Google Gemini API successfully tested and generating professional resume content.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm/yarn/pnpm
+
+### Installation & Setup
+
+1. Clone and install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/abubakkar-js-dev/resume-builder.git
+cd resume-builder
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Create `.env.local` file:
+```env
+GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key_here
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **State Management:** Redux Toolkit + Redux Persist
+- **Styling:** Tailwind CSS v4
+- **Animations:** Framer Motion
+- **AI Integration:** AI-SDK with Google Gemini
+- **PDF Generation:** html2canvas + jsPDF
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ Key Features Implemented
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Core Requirements
+✅ Multi-step form with 7 steps (Personal Info, Career Summary, Skills, Education, Contact, AI Generation, Review)  
+✅ Redux Toolkit for state management with persistence  
+✅ Smooth page and step animations using Framer Motion  
+✅ AI-powered resume generation using Gemini model  
+✅ Server Actions for backend logic  
+✅ PDF download with single-page optimization  
+✅ Responsive design matching Figma specifications  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Additional Features
+✅ Smart theming system - change colors instantly via CSS variables  
+✅ Education/Certification toggle functionality  
+✅ Reset & start over capability  
+✅ Auto-save with Redux Persist  
+✅ Progress tracking stepper  
+
+---
+
+## 🎨 Theme Customization
+
+The entire color scheme can be changed in seconds by editing `src/app/globals.css`:
+
+```css
+@theme inline {
+  --color-primary: #28c76f;      /* Main theme color */
+  --color-secondary: #9a9a9a;
+  --color-main-text: #333333;
+  --color-subtitle-text: #777777;
+}
+```
+
+---
+
+## � Implementation Summary
+
+### What Was Built
+
+**Multi-Step Form System**
+- 7-step resume creation flow with navigation
+- Reusable form components (Input, DatePicker, FileUpload, Button)
+- Progress stepper with active state indication
+
+**State Management**
+- Redux Toolkit with TypeScript integration
+- Redux Persist for data persistence across sessions
+- Separate slices for form data and navigation state
+
+**AI Integration**
+- Google Gemini integration via AI-SDK
+- Server Action for secure API calls
+- AI-generated professional resume summaries
+- Progress tracking during generation
+- **Verified Working:** Successfully tested with live API key
+
+**PDF Export**
+- Professional 2-column resume layout
+- Single-page PDF with auto-scaling
+- Download functionality with proper formatting
+- Color compatibility fixes for PDF rendering
+
+**Animations & UX**
+- Framer Motion for smooth transitions
+- Page navigation animations
+- Step transition effects
+- Homepage entrance animations
+
+### Technical Decisions
+
+- **Server Actions:** Used for AI integration to keep API keys secure
+- **Redux Persist:** Ensures user data persists across browser sessions
+- **CSS Variables:** Enables instant theme changes as required
+- **Hex Colors in PDF:** Replaced Tailwind classes to fix html2canvas compatibility
+
+### Challenges Solved
+
+1. **PDF Color Rendering Issue**
+   - Problem: Tailwind v4 uses `lab()` colors unsupported by html2canvas
+   - Solution: Converted all colors to hex codes in resume preview component
+
+2. **Single-Page PDF Requirement**
+   - Problem: Resume content exceeded one A4 page
+   - Solution: Implemented dynamic scaling algorithm to fit content
+
+3. **State Persistence**
+   - Problem: Complex nested form data with File objects
+   - Solution: Custom Redux Persist configuration with serialization handling
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── resume/              # Multi-step form pages
+│   ├── actions.ts           # Server Actions (AI integration)
+│   └── globals.css          # Theme variables
+├── components/              # Reusable UI components
+├── store/
+│   └── slices/             # Redux slices (form, navigation)
+└── types/                  # TypeScript definitions
+```
+
+---
+
+## ✅ Requirements Checklist
+
+- [x] Next.js (App Router) with TypeScript
+- [x] Multi-step form (7 steps)
+- [x] Redux Toolkit state management
+- [x] Data persistence (Redux Persist)
+- [x] Page and step animations
+- [x] AI-SDK integration (Gemini)
+- [x] Server Actions for backend
+- [x] PDF download functionality
+- [x] Clean code structure
+- [x] Reusable components
+- [x] Quick theme change capability
+- [x] Figma design adherence
+
+---
+
+## 👨‍💻 Developer
+
+**Abubakkar JS Dev**  
+GitHub: [@abubakkar-js-dev](https://github.com/abubakkar-js-dev)
+
+---
+
+**Built with Next.js, TypeScript, Redux, and AI**
