@@ -1,11 +1,13 @@
 "use client";
-import Button from "@/components/ui/Button";
 import ProgressStepper from "@/components/ProgressStepper";
+import Button from "@/components/ui/Button";
 import { STEPS } from "@/data/steps";
 import { useAppDispatch } from "@/store/hooks";
 import { setCurrentStep } from "@/store/slices/navigationSlice";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
+
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function ResumeLayout({
   children,
@@ -32,8 +34,19 @@ export default function ResumeLayout({
       </header>
 
       {/* 2. The Dynamic Route Content (Middle Part) */}
-      <main className="grow w-full max-w-4xl mx-auto px-4 py-8">
-        {children}
+      <main className="grow w-full max-w-4xl mx-auto px-4 py-8 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={pathname}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="h-full"
+          >
+            {children}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* 3. The Navigation Footer */}

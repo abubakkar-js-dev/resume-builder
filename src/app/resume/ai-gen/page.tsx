@@ -1,35 +1,69 @@
 "use client";
-import React from "react";
-import ProgressBar from "@/components/ProgressBar";
 import Button from "@/components/Button";
+import ProgressBar from "@/components/ProgressBar";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { setIsGenerating, setGenerationProgress } from "@/store/slices/navigationSlice";
-
+import { setCareerSummary } from "@/store/slices/formSlice";
+import { setGenerationProgress, setIsGenerating } from "@/store/slices/navigationSlice";
+import { generateResume } from "../../actions";
 
 export default function AIResumeGenerationStep() {
   const dispatch = useAppDispatch();
   const { isGenerating, generationProgress } = useAppSelector((state) => state.navigation);
 
   const formdata = useAppSelector((state) => state.form);
-  console.log("Form Data:", formdata);
 
-  const handleGenerateResume = () => {
+  const handleGenerateResume = async () => {
     dispatch(setIsGenerating(true));
     dispatch(setGenerationProgress(0));
 
-    // Simulate AI generation progress
+    // Simulate progress
     let progress = 0;
     const interval = setInterval(() => {
-      progress += 10;
-      dispatch(setGenerationProgress(progress));
-      
-      if (progress >= 100) {
-        clearInterval(interval);
-        setTimeout(() => {
-          dispatch(setIsGenerating(false));
-        }, 500);
+      progress += 5;
+      if (progress < 90) {
+        dispatch(setGenerationProgress(progress));
       }
-    }, 300);
+    }, 200);
+
+    try {
+      // Sanitize data for server action (remove File objects)
+      const sanitizedData = JSON.parse(JSON.stringify(formdata, (key, value) => {
+        if (key === 'achievements' && typeof value === 'object') return null; // Skip File objects
+        return value;
+      }));
+
+      const result = await generateResume(sanitizedData);
+      
+      clearInterval(interval);
+      dispatch(setGenerationProgress(100));
+
+      if (result.success && result.data) {
+        try {
+          // Clean up the response if it contains markdown code blocks
+          const jsonString = result.data.replace(/```json\n?|\n?```/g, '').trim();
+          const parsedData = JSON.parse(jsonString);
+
+          if (parsedData.summary) {
+            dispatch(setCareerSummary({ 
+              ...formdata.careerSummary, 
+              summary: parsedData.summary 
+            }));
+          }
+          
+          // You could also update work experience here if the AI returns it
+          // if (parsedData.enhancedExperience) { ... }
+
+        } catch (e) {
+          console.error("Failed to parse AI response:", e);
+        }
+      }
+    } catch (error) {
+      console.error("Error generating resume:", error);
+    } finally {
+      setTimeout(() => {
+        dispatch(setIsGenerating(false));
+      }, 500);
+    }
   };
 
   return (

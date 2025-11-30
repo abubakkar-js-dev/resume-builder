@@ -19,7 +19,7 @@ export default function Button({
     "flex-1 h-[56px] rounded-[6px] flex items-center justify-center gap-[8px] px-[24px] py-[11px] transition-colors font-medium text-[16px]";
   const variantStyles =
     variant === "primary"
-      ? "bg-[#28c76f] text-[#fcfcfc] hover:bg-[#24b263]"
+      ? "bg-primary text-[#fcfcfc] hover:bg-primary/90"
       : "bg-[#9a9a9a] text-[#fcfcfc] hover:bg-[#888888]";
 
   return (
