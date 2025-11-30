@@ -6,7 +6,6 @@ import { PersonalInfo } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setPersonalInfo } from "@/store/slices/formSlice";
 
-interface PersonalInformationProps {}
 
 const COUNTRIES = [
   { value: "Bangladesh", label: "Bangladesh" },
@@ -16,7 +15,7 @@ const COUNTRIES = [
   { value: "Australia", label: "Australia" },
 ];
 
-export default function PersonalInformation({}: PersonalInformationProps) {
+export default function PersonalInformation() {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.personalInfo);
 
@@ -26,21 +25,21 @@ export default function PersonalInformation({}: PersonalInformationProps) {
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-6">
         {/* Header */}
-        <div className="flex flex-col gap-[16px] max-w-[904px]">
-          <h1 className="text-[#333333] text-[48px] leading-[1.4] font-semibold">
+        <div className="flex flex-col gap-4 max-w-[904px]">
+          <h1 className="text-main-text text-[48px] leading-[1.4] font-semibold">
             Tell Us About Yourself
           </h1>
-          <p className="text-[#777777] text-[18px] leading-[1.6]">
+          <p className="text-subtitle-text text-[18px] leading-[1.6]">
             Fill in your personal details so we can tailor your resume perfectly to your career goals.
           </p>
         </div>
 
         {/* Form Fields */}
-        <div className="flex flex-col gap-[32px]">
+        <div className="flex flex-col gap-8">
           {/* First Name & Last Name */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <Input
               label="First Name"
               value={data.firstName}
@@ -58,7 +57,7 @@ export default function PersonalInformation({}: PersonalInformationProps) {
           </div>
 
           {/* Phone Number & Email Address */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <Input
               label="Phone Number"
               value={data.phoneNumber}
@@ -77,7 +76,7 @@ export default function PersonalInformation({}: PersonalInformationProps) {
           </div>
 
           {/* Country & Address */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <Select
               label="Country/Region"
               value={data.country}
@@ -95,7 +94,7 @@ export default function PersonalInformation({}: PersonalInformationProps) {
           </div>
 
           {/* City, State & ZIP Code */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <Input
               label="City"
               value={data.city}

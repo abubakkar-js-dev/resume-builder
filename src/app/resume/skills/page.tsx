@@ -10,9 +10,9 @@ import { WorkExperience } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setWorkExperience } from "@/store/slices/formSlice";
 
-interface SkillsExperienceStepProps {}
 
-export default function SkillsExperienceStep({}: SkillsExperienceStepProps) {
+
+export default function SkillsExperienceStep() {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.form.workExperience);
   const addWorkExperience = () => {
@@ -48,28 +48,28 @@ export default function SkillsExperienceStep({}: SkillsExperienceStepProps) {
 
   return (
     <div className="w-full max-w-[1180px] mx-auto px-4">
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-6">
         {/* Header */}
         <div className="flex items-start justify-between">
-          <div className="flex flex-col gap-[16px] max-w-[904px]">
-            <h1 className="text-[#333333] text-[48px] leading-[1.4] font-semibold">
+          <div className="flex flex-col gap-4 max-w-[904px]">
+            <h1 className="text-main-text text-[48px] leading-[1.4] font-semibold">
               Your Work Experience & Skills
             </h1>
-            <p className="text-[#777777] text-[18px] leading-[1.6]">
+            <p className="text-subtitle-text text-[18px] leading-[1.6]">
               Highlight your work experience and skills. The more detail you provide, the better the AI can tailor your resume to match job opportunities.
             </p>
           </div>
           <button
             type="button"
-            className="bg-neutral-100 px-[20px] py-[8px] rounded-[8px] flex items-center gap-[12px] hover:bg-neutral-200 transition-colors"
+            className="bg-neutral-100 px-5 py-2 rounded-lg flex items-center gap-3 hover:bg-neutral-200 transition-colors"
           >
             <span className="text-[#101010] text-[20px] font-medium">Skip</span>
-            <span className="text-[#101010]">›</span>
+            <span className="text-[#101010]">{">"}</span>
           </button>
         </div>
 
         {/* Form Fields */}
-        <div className="flex flex-col gap-[32px]">
+        <div className="flex flex-col gap-8">
           {/* Job Title */}
           <Input
             label="Job Title"
@@ -89,9 +89,11 @@ export default function SkillsExperienceStep({}: SkillsExperienceStepProps) {
           />
 
           {/* Duration */}
-          <div className="flex gap-[24px]">
+          <div>
+            <label className="text-[#101010] text-[20px] font-medium leading-[1.6]">Duration</label>
+          <div className="flex gap-6 mt-1">
             <DatePicker
-              label="Duration"
+              label=" "
               value={currentExperience.startDate}
               onChange={(e) => updateExperience(0, "startDate", e.target.value)}
               placeholder="Start Date"
@@ -105,6 +107,7 @@ export default function SkillsExperienceStep({}: SkillsExperienceStepProps) {
               className="flex-1"
             />
           </div>
+          </div>
 
           {/* Job Description */}
           <Textarea
@@ -117,7 +120,7 @@ export default function SkillsExperienceStep({}: SkillsExperienceStepProps) {
           />
 
           {/* Achievements & Skills */}
-          <div className="flex gap-[24px]">
+          <div className="flex gap-6">
             <FileUpload
               label="Achievements"
               onChange={(file) => updateExperience(0, "achievements", file)}
@@ -131,16 +134,16 @@ export default function SkillsExperienceStep({}: SkillsExperienceStepProps) {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-[2px] bg-[#e0e0e0]" />
+          <div className="w-full h-0.5 bg-[#e0e0e0]" />
 
           {/* Add Another Work Experience */}
           <button
             type="button"
             onClick={addWorkExperience}
-            className="flex items-center gap-[10px] text-[#28c76f] hover:text-[#24b263] transition-colors"
+            className="flex items-center gap-2.5 text-primary hover:text-primary/80 transition-colors"
           >
-            <div className="w-[24px] h-[24px] rounded-full bg-[#28c76f] flex items-center justify-center">
-              <Plus className="w-[16px] h-[16px] text-white" />
+            <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+              <Plus className="w-4 h-4 text-white" />
             </div>
             <span className="text-[20px] font-medium">Add Another Work Experience</span>
           </button>
