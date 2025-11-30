@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Input from "@/components/Input";
 import DatePicker from "@/components/DatePicker";
@@ -6,7 +7,6 @@ import { Certification } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCertifications } from "@/store/slices/formSlice";
 import { setShowCertifications } from "@/store/slices/navigationSlice";
-
 
 export default function CertificationsStep() {
   const dispatch = useAppDispatch();
@@ -22,7 +22,11 @@ export default function CertificationsStep() {
     dispatch(setCertifications([...data, newCertification]));
   };
 
-  const updateCertification = (index: number, field: keyof Certification, value: any) => {
+  const updateCertification = (
+    index: number,
+    field: keyof Certification,
+    value: any
+  ) => {
     const updated = [...data];
     updated[index] = { ...updated[index], [field]: value };
     dispatch(setCertifications(updated));
@@ -50,7 +54,8 @@ export default function CertificationsStep() {
               Your Certifications
             </h1>
             <p className="text-subtitle-text text-[18px] leading-[1.6]">
-              Provide your academic qualifications and any relevant certifications to strengthen your resume.
+              Provide your academic qualifications and any relevant
+              certifications to strengthen your resume.
             </p>
           </div>
           <button
@@ -58,7 +63,9 @@ export default function CertificationsStep() {
             onClick={handleSwitchToEducation}
             className="bg-main-text px-6 py-[11px] rounded-md h-14 flex items-center gap-2 hover:bg-[#444444] transition-colors"
           >
-            <span className="text-neutral-light text-[16px] font-medium">Education</span>
+            <span className="text-neutral-light text-[16px] font-medium">
+              Education
+            </span>
           </button>
         </div>
 
@@ -78,31 +85,40 @@ export default function CertificationsStep() {
             <Input
               label="Issuing Organization"
               value={currentCertification.issuingOrganization}
-              onChange={(e) => updateCertification(0, "issuingOrganization", e.target.value)}
+              onChange={(e) =>
+                updateCertification(0, "issuingOrganization", e.target.value)
+              }
               placeholder="Dhaka University"
               className="w-[578px]"
             />
-            <div className="w-[578px] opacity-0">
-              {/* Spacer for layout */}
-            </div>
+            <div className="w-[578px] opacity-0">{/* Spacer for layout */}</div>
           </div>
 
           {/* Certificate Issue */}
-          <div className="flex gap-6">
-            <DatePicker
-              label="Certificate Issue"
-              value={currentCertification.issueDate}
-              onChange={(e) => updateCertification(0, "issueDate", e.target.value)}
-              placeholder="Issue Date"
-              className="flex-1"
-            />
-            <DatePicker
-              label=" "
-              value={currentCertification.expiryDate}
-              onChange={(e) => updateCertification(0, "expiryDate", e.target.value)}
-              placeholder="Expiry Date (if applicable)"
-              className="flex-1"
-            />
+          <div>
+            <p className="text-main-text text-[20px] font-medium leading-[1.6] mb-1">
+              Certificate Issue
+            </p>
+            <div className="flex gap-6">
+              <DatePicker
+                label=" "
+                value={currentCertification.issueDate}
+                onChange={(e) =>
+                  updateCertification(0, "issueDate", e.target.value)
+                }
+                placeholder="Issue Date"
+                className="flex-1"
+              />
+              <DatePicker
+                label=" "
+                value={currentCertification.expiryDate}
+                onChange={(e) =>
+                  updateCertification(0, "expiryDate", e.target.value)
+                }
+                placeholder="Expiry Date (if applicable)"
+                className="flex-1"
+              />
+            </div>
           </div>
 
           {/* Divider */}
@@ -117,7 +133,9 @@ export default function CertificationsStep() {
             <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
               <Plus className="w-4 h-4 text-white" />
             </div>
-            <span className="text-[20px] font-medium">Add Another Certification</span>
+            <span className="text-[20px] font-medium">
+              Add Another Certification
+            </span>
           </button>
         </div>
       </div>

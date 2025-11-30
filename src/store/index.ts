@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
   navigation: navigationReducer,
 });
 
+
 const persistConfig = {
   key: "root",
   storage,

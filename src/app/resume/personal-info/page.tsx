@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import Input from "@/components/Input";
 import Select from "@/components/Select";
@@ -32,7 +32,8 @@ export default function PersonalInformation() {
             Tell Us About Yourself
           </h1>
           <p className="text-subtitle-text text-[18px] leading-[1.6]">
-            Fill in your personal details so we can tailor your resume perfectly to your career goals.
+            Fill in your personal details so we can tailor your resume perfectly
+            to your career goals.
           </p>
         </div>
 

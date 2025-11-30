@@ -6,7 +6,6 @@ import { ContactInfo } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setContactInfo } from "@/store/slices/formSlice";
 
-
 const SOCIAL_MEDIA_OPTIONS = [
   { value: "Facebook", label: "Facebook" },
   { value: "Twitter", label: "Twitter" },
@@ -33,7 +32,8 @@ export default function ContactInformationStep() {
             Your Contact Information
           </h1>
           <p className="text-subtitle-text text-[18px] leading-[1.6]">
-            Include additional contact details and social media links to showcase your professional presence.
+            Include additional contact details and social media links to
+            showcase your professional presence.
           </p>
         </div>
 

@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Home - Resume Builder",
+  description: "Create professional resumes with ease using our Resume Builder application.",
+};
 
 export default function Home() {
   return (

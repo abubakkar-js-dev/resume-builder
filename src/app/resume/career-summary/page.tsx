@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import Textarea from "@/components/Textarea";
 import Select from "@/components/Select";
@@ -6,9 +6,7 @@ import { CareerSummary } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCareerSummary } from "@/store/slices/formSlice";
 
-
 const JOB_TITLES = [
-
   { value: "", label: "Enter your most recent or current job title" },
   { value: "UI/UX Designer", label: "UI/UX Designer" },
   { value: "Frontend Developer", label: "Frontend Developer" },
@@ -34,7 +32,9 @@ export default function CareerSummaryStep() {
             Your Career Overview
           </h1>
           <p className="text-subtitle-text text-[18px] leading-[1.6]">
-            A strong career summary will make a lasting impression on recruiters. Let&apos;s create a summary that highlights your experience and goals.
+            A strong career summary will make a lasting impression on
+            recruiters. Let&apos;s create a summary that highlights your
+            experience and goals.
           </p>
         </div>
 

@@ -10,6 +10,9 @@ export default function AIResumeGenerationStep() {
   const dispatch = useAppDispatch();
   const { isGenerating, generationProgress } = useAppSelector((state) => state.navigation);
 
+  const formdata = useAppSelector((state) => state.form);
+  console.log("Form Data:", formdata);
+
   const handleGenerateResume = () => {
     dispatch(setIsGenerating(true));
     dispatch(setGenerationProgress(0));
